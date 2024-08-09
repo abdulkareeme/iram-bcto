@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Action for flower products -->
+    <record id="action_flower_product" model="ir.actions.act_window">
+        <field name="name">Flower Products</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="context" eval="{'default_is_flower': True}"/>
+        <field name="domain" eval="[('is_flower', '=', True)]"/>
+    </record>
+
+    <!-- Menu item for flower products under Sales/Products -->
+    <menuitem id="menu_flower_product"
+              name="Flower Products"
+              parent="sale.product_menu_catalog"
+              action="action_flower_product"
+              sequence="2"/>
+</odoo>
