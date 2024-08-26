@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="flower_view_tree" model="ir.ui.view">
+        <field name="name">flower.view.tree</field>
+        <field name="model">flower</field>
+        <field name="arch" type="xml">
+            <tree string="Flowers">
+                <field name="common_name" />
+                <field name="season_start" />
+                <field name="season_end" />
+                <field name="watering_frequency" />
+                <field name="watering_amount" />
+            </tree>
+        </field>
+    </record>
+</odoo>

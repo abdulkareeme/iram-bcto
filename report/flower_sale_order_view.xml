@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_flower_sale_order">
+        <t t-call="web.html_container">
+            <t t-set="company" t-value="docs[0].company_id"/>
+            <t t-set="report_header_style" t-value="'display: none;'"/>
+            <t t-set="footer" t-value="'oe_hidden'"/>
+            <t t-call="web.external_layout_boxed">
+                <div class="page">
+                    <h2>Sally's Flower Shop</h2>
+                </div>
+                <t t-foreach="docs" t-as="o">
+                    <t t-foreach="o.order_line" t-as="line">
+                        <div class="page">
+                            <h3>Flower Details</h3>
+                            <p><strong>Name:</strong> <span t-esc="line.product_id.name"/></p>
+                            <p><strong>Color:</strong> <span t-esc="line.product_id.color"/></p>
+                            <p><strong>Price:</strong> <span t-esc="line.price_unit"/></p>
+                            <p><strong>Description:</strong> <span t-esc="line.product_id.description_sale"/></p>
+                            <p><strong>Stock:</strong> <span t-esc="line.product_id.qty_available"/></p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_flower_sale_order">
+        <t t-call="web.html_container">
+            <t t-set="company" t-value="docs[0].company_id"/>
+            <t t-set="report_header_style" t-value="'display: none;'"/>
+            <t t-set="footer" t-value="'oe_hidden'"/>
+            <t t-call="web.external_layout_boxed">
+                <div class="page">
+                    <center>
+                        <h2>
+                            <t t-esc="company.name"/>
+                        </h2>
+                    </center>
+                </div>
+                <t t-foreach="docs" t-as="o">
+                    <t t-foreach="o.order_line" t-as="line">
+                        <div class="page" style="font-size: 8px !important;">
+                            <p style="page-break-before: always"/>
+                            <h6>Flower Product</h6>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <p style="padding: 5px;">
+                                            Common Name:
+                                            <span t-esc="line.product_id.flower_id.common_name"/>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p style="padding: 5px;">
+                                            Scientific Name:
+                                            <span t-esc="line.product_id.flower_id.scientific_name"/>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="padding: 5px;">
+                                            Season Start:
+                                            <span t-esc="line.product_id.flower_id.season_start"/>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p style="padding: 5px;">
+                                            Season End:
+                                            <span t-esc="line.product_id.flower_id.season_end"/>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="padding: 5px;">
+                                            Watering Frequency:
+                                            <span t-esc="line.product_id.flower_id.watering_frequency"/>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p style="padding: 5px;"> 
+                                            Watering Amount:
+                                            <span t-esc="line.product_id.flower_id.watering_amount"/> 
+                                             mL
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
