@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="inherit_product_form_view" model="ir.ui.view">
+		<field name="name">product.product.common.form</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_normal_form_view"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[@name='options']" position="inside">
+				<span class="d-inline-block">
+					<field name="is_flower"/>
+					<label for="is_flower"/>
+				</span>
+			</xpath>
+			<xpath expr="//field[@name='uom_id']" position="after">
+				<group name="related_flower_info" string="FLower Info" attrs="{'invisible': [('is_flower', '==', False)]}">
+					<field name="flower_id"  />
+					<field name="sequence_id" />
+					<field name="gardener_ids" widget="many2many_tags"  />
+				</group>
+			</xpath>
+			<xpath expr="//sheet" position="inside">
+				<field name="needs_watering" invisible="1"/>
+				<widget name="web_ribbon" title="NEEDS WATERING" bg_color="bg-danger" attrs="{'invisible': [('needs_watering', '=', False)]}"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

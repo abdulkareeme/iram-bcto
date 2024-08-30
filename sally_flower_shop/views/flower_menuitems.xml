@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="flower_menu_root" name="Sally Flower Shop" sequence="10" groups="sally_flower_shop.gardener"/>
+    <menuitem id="flower_menu" name="List of Flowers" action="flower_tree_view_action" parent="flower_menu_root" sequence="10"/>
+    <menuitem id="flower_product_menu" name="Flowers" action="flower_product_view_action" parent="flower_menu_root" sequence="10"/>
+    <menuitem id="flower_sales" action="flower_product_view_action" parent="sale.product_menu_catalog" sequence="10" groups="sally_flower_shop.gardener"/>
+</odoo>
